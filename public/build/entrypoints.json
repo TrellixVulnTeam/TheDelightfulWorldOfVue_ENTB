@@ -3,11 +3,19 @@
     "app": {
       "js": [
         "http://localhost:8080/build/runtime.js",
-        "http://localhost:8080/build/vendors~_tmp_copy~app.js",
+        "http://localhost:8080/build/vendors~_tmp_copy~app~products.js",
         "http://localhost:8080/build/app.js"
       ],
       "css": [
         "http://localhost:8080/build/app.css"
+      ]
+    },
+    "products": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~_tmp_copy~app~products.js",
+        "http://localhost:8080/build/vendors~products.js",
+        "http://localhost:8080/build/products.js"
       ]
     }
   }
