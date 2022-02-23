@@ -1,6 +1,14 @@
 import Vue from 'vue';
 
-const app = new Vue({
+const template = '<h1> Hello {{ firstName }}! Is this cooler?</h1>';
+new Vue({
   el: '#app',
-  template: '<h1> Hello Vue! Is this cooler?</h1>',
+  data() {
+    return {
+      firstName: 'Andres',
+    };
+  },
+  render(h) {
+    return Vue.compile(template).render(h);
+  },
 });
