@@ -1,0 +1,9 @@
+{
+  "build/app.css": "http://localhost:8080/build/app.css",
+  "build/app.js": "http://localhost:8080/build/app.js",
+  "build/runtime.js": "http://localhost:8080/build/runtime.js",
+  "build/vendors~_tmp_copy~app.js": "http://localhost:8080/build/vendors~_tmp_copy~app.js",
+  "build/images/loading.gif": "http://localhost:8080/build/images/loading.gif",
+  "build/images/mvp-logo-dark.png": "http://localhost:8080/build/images/mvp-logo-dark.png",
+  "build/images/mvp-logo-light.png": "http://localhost:8080/build/images/mvp-logo-light.png"
+}
