@@ -16,6 +16,9 @@
         "http://localhost:8080/build/vendors~_tmp_copy~app~products.js",
         "http://localhost:8080/build/vendors~products.js",
         "http://localhost:8080/build/products.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/products.css"
       ]
     }
   }
