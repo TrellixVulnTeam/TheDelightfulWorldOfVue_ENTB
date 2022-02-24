@@ -1837,6 +1837,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "axios@npm:0.26.0"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d7a8b898f4157bedeb2e06c03b16133b91b354c041205bea732ce58b7a21f373d22057b0eea0d482838145ce6ff482b359750d9bcb8dd19d45e3928e3c65c280
+  languageName: node
+  linkType: hard
+
 "babel-loader@npm:^8.0.0":
   version: 8.1.0
   resolution: "babel-loader@npm:8.1.0"
@@ -4261,6 +4270,16 @@ __metadata:
   dependencies:
     debug: ^3.0.0
   checksum: 854a739ad6b1b50d5738435824bdcf3205bda8e7b38b4cea336d1cf383741a453cdd16a3e774e0abad8d3b1b3f1ada3eba4025532297600c3ba36e35fc0dd9a9
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -8124,6 +8143,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@symfony/webpack-encore": ^0.30.0
+    axios: ^0.26.0
     bootstrap: ^4.4.1
     core-js: ^3.0.0
     eslint: ^6.7.2
