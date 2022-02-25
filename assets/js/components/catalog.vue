@@ -1,8 +1,14 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-12">
-        <h1>Products</h1>
+      <div class="col-3">
+        <title-component
+          :current-category-id="currentCategoryId"
+          :categories="categories"
+        />
+      </div>
+      <div class="col-9">
+        <search-bar @search-products="onSearchProducts" />
       </div>
     </div>
     <product-list :products="products" :loading="loading" />
@@ -16,12 +22,16 @@
 import LegendComponent from '@/components/legend.vue';
 import ProductList from '@/components/product-list';
 import { fetchProducts } from '@/services/product-services.js';
+import TitleComponent from '@/components/title.vue';
+import SearchBar from './search-bar.vue';
 
 export default {
   name: 'Catalog',
   components: {
     LegendComponent,
     ProductList,
+    TitleComponent,
+    SearchBar,
   },
   data() {
     return {
@@ -35,23 +45,40 @@ export default {
       type: String,
       default: null,
     },
+    categories: {
+      type: Array,
+      required: true,
+    },
   },
-  async created() {
+  created() {
     // axios.get('/api/products').then((response) => {
     //   console.log(response);
     // });
-    this.loading = true;
+    this.loadProducts(null);
+  },
+  methods: {
+    /**
+     * Handles a change in the searchTerm provided by the search bar and fecheches a new set
+     *
+     * @param {string} term
+     */
+    onSearchProducts({ term }) {
+      this.loadProducts(term);
+    },
+    async loadProducts(searchTerm) {
+      this.loading = true;
 
-    let response;
-    try {
-      response = await fetchProducts(this.currentCategoryId);
-    } catch (e) {
+      let response;
+      try {
+        response = await fetchProducts(this.currentCategoryId, searchTerm);
+      } catch (e) {
+        this.loading = false;
+        return;
+      }
+
       this.loading = false;
-      return;
-    }
-
-    this.loading = false;
-    this.products = response.data['hydra:member'];
+      this.products = response.data['hydra:member'];
+    },
   },
 };
 </script>
