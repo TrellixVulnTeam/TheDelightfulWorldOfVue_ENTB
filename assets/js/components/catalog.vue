@@ -38,6 +38,7 @@ export default {
       legend: "Shipping takes 10-12 weeks, and products probably won't work",
       products: [],
       loading: false,
+      searchTerm: null,
     };
   },
   props: {
@@ -50,11 +51,16 @@ export default {
       required: true,
     },
   },
+  watch: {
+    currentCategoryId() {
+      this.loadProducts();
+    },
+  },
   created() {
     // axios.get('/api/products').then((response) => {
     //   console.log(response);
     // });
-    this.loadProducts(null);
+    this.loadProducts();
   },
   methods: {
     /**
@@ -63,14 +69,15 @@ export default {
      * @param {string} term
      */
     onSearchProducts({ term }) {
-      this.loadProducts(term);
+      this.searchTerm = term;
+      this.loadProducts();
     },
-    async loadProducts(searchTerm) {
+    async loadProducts() {
       this.loading = true;
 
       let response;
       try {
-        response = await fetchProducts(this.currentCategoryId, searchTerm);
+        response = await fetchProducts(this.currentCategoryId, this.searchTerm);
       } catch (e) {
         this.loading = false;
         return;
